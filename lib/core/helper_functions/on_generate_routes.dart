@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:fruithub/features/Splash/presentation/views/splash_view.dart';
+import 'package:fruithub/features/onboarding/presentation/views/on_boarding_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case 'SplashView':
       return MaterialPageRoute(
         builder: (context) => const SplashView(),
+      );
+    case 'OnBoardingView':
+      return MaterialPageRoute(
+        builder: (context) => const OnBoardingView(),
       );
     default:
       return MaterialPageRoute(

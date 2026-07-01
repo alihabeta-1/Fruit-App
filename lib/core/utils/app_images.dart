@@ -2,23 +2,27 @@
 class Assets {
   Assets._();
 
-  /// Assets for resourceImagesLogoApp
-  /// assets/images/logo app.png
   static const String resourceImagesLogoApp =
       "assets/images/logoapp.png";
 
-  /// Assets for resourceImagesLogoOnboarding
-  /// assets/images/logo onboarding.svg
   static const String resourceImagesLogoOnboarding =
       "assets/images/logoonboarding.svg";
 
-  /// Assets for resourceImagesOnboardingBottom
-  /// assets/images/onboarding bottom.svg
   static const String resourceImagesOnboardingBottom =
       "assets/images/onboardingbottom.svg";
 
-  /// Assets for resourceImagesPlantOnboarding
-  /// assets/images/plant onboarding.svg
   static const String resourceImagesPlantOnboarding =
       "assets/images/plantonboarding.svg";
+
+  static const String resourceimagepageviewitem1background =
+      "assets/images/imagepageviewitem1background.svg";
+
+  static const String resourcepageviewitem1image =
+      "assets/images/pageviewitem1image.svg";
+
+  static const String resourceimagepageviewitem2background =
+      "assets/images/imagepageviewitem2background.svg";
+
+  static const String resourcepageviewitem2image =
+      "assets/images/pageviewitem2image.svg";
 }
