@@ -4,7 +4,7 @@ import 'package:fruithub/features/onboarding/presentation/views/widgets/on_board
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
 
-  static const String routname = 'OnBoardingView';
+  static const String routeName = 'OnBoardingView';
 
   @override
   State<OnBoardingView> createState() =>

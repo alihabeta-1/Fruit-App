@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fruithub/core/helper_functions/on_generate_routes.dart';
+import 'package:fruithub/core/services/shared_preferences_singleton.dart';
 import 'package:fruithub/features/Splash/presentation/views/splash_view.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   runApp(const FruitHub());
 }
 
