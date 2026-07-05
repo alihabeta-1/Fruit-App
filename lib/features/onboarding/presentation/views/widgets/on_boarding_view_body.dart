@@ -64,11 +64,11 @@ class _OnBoardingViewBodyState
               horizontal: kHorizontalPadding,
             ),
             child: CustomButton(
-              Prefs.setBool(
-                KIsOnBoardingViewShownKey,
-                true,
-              ),
               onPressed: () {
+                Prefs.setBool(
+                  KIsOnBoardingViewShownKey,
+                  true,
+                );
                 Navigator.of(
                   context,
                 ).pushReplacementNamed(LoginView.routeName);

@@ -53,8 +53,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     bool isOnBoardingViewShown = Prefs.getBool(
       KIsOnBoardingViewShownKey,
     );
-    Future.delayed(const Duration(seconds: 3));
-    () {
+
+    Future.delayed(const Duration(seconds: 3), () {
+      if (!mounted) return;
+
       if (isOnBoardingViewShown) {
         Navigator.of(
           context,
@@ -64,6 +66,6 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           context,
         ).pushReplacementNamed(OnBoardingView.routeName);
       }
-    };
+    });
   }
 }

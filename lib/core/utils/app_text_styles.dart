@@ -28,4 +28,8 @@ abstract class TextStyles {
     fontSize: 13,
     fontWeight: FontWeight.normal,
   );
+  static const TextStyle cairoBold13 = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.bold,
+  );
 }

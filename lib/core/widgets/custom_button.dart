@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruithub/core/utils/app_colors.dart';
+import 'package:fruithub/core/utils/app_text_styles.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-    setBool, {
+  const CustomButton({
     super.key,
     required this.onPressed,
     required this.text,
@@ -25,9 +25,8 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: const TextStyle(
+          style: TextStyles.cairoBold16.copyWith(
             color: Colors.white,
-            fontSize: 16,
           ),
         ),
       ),
