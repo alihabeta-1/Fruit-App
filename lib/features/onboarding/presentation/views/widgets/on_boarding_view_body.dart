@@ -66,7 +66,7 @@ class _OnBoardingViewBodyState
             child: CustomButton(
               onPressed: () {
                 Prefs.setBool(
-                  KIsOnBoardingViewShownKey,
+                  kIsOnBoardingViewShownKey,
                   true,
                 );
                 Navigator.of(

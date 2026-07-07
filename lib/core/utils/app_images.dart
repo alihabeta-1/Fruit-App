@@ -25,4 +25,13 @@ class Assets {
 
   static const String resourcepageviewitem2image =
       "assets/images/pageviewitem2image.svg";
+
+  static const String resourceGoogleIcon =
+      "assets/images/google_icon.svg";
+
+  static const String resourceFacebookIcon =
+      "assets/images/facebook_icon.svg";
+
+  static const String resourceAppleIcon =
+      "assets/images/apple_icon.svg";
 }

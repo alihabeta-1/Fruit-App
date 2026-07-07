@@ -1,2 +1,2 @@
 const kHorizontalPadding = 16.0;
-const KIsOnBoardingViewShownKey = 'isOnBoardingViewShown';
+const kIsOnBoardingViewShownKey = 'isOnBoardingViewShown';

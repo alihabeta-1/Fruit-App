@@ -51,7 +51,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   void excuteNavigation() {
     bool isOnBoardingViewShown = Prefs.getBool(
-      KIsOnBoardingViewShownKey,
+      kIsOnBoardingViewShownKey,
     );
 
     Future.delayed(const Duration(seconds: 3), () {
