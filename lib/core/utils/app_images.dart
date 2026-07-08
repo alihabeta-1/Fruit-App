@@ -34,4 +34,7 @@ class Assets {
 
   static const String resourceAppleIcon =
       "assets/images/apple_icon.svg";
+
+  static const String resourceCheckedIcon =
+      "assets/images/Checked_icon.svg";
 }
