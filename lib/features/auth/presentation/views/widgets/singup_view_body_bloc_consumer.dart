@@ -13,17 +13,8 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
         if (state is SignupFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.massage)),
-          );
-        } else if (state is SignupSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('تم إنشاء الحساب بنجاح'),
-              backgroundColor: Colors.green,
-            ),
-          );
-        }
+          buildErrorBar(context, state.massage);
+        } else if (state is SignupSuccess) {}
       },
       builder: (context, state) {
         return ModalProgressHUD(
@@ -33,6 +24,15 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
           child: SignupViewBody(),
         );
       },
+    );
+  }
+
+  void buildErrorBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.green,
+      ),
     );
   }
 }

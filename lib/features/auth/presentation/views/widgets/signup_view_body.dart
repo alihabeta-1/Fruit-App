@@ -4,6 +4,7 @@ import 'package:fruithub/constants.dart';
 import 'package:fruithub/core/utils/app_text_styles.dart';
 import 'package:fruithub/core/widgets/custom_button.dart';
 import 'package:fruithub/core/widgets/custom_text_form_field.dart';
+import 'package:fruithub/core/widgets/password_field.dart';
 import 'package:fruithub/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:fruithub/features/auth/presentation/views/widgets/have_an_account_widget.dart';
 import 'package:fruithub/features/auth/presentation/views/widgets/terms_and_conditions.dart';
@@ -61,19 +62,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 suffixIcon: null,
               ),
               SizedBox(height: 16),
-              CustomTextFormField(
+              PasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
-                hintText: 'كلمة المرور',
-                hintStyle: TextStyles.cairoBold13.copyWith(
-                  color: Color(0xff949D9E),
-                ),
-                keyboardType: TextInputType.visiblePassword,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: Color(0xffC9CECF),
-                ),
               ),
               SizedBox(height: 16),
               TermsAndConditions(),
