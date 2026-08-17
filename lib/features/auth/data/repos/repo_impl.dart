@@ -34,4 +34,12 @@ class AuthRepoImpl implements AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> login(
+    String email,
+    String password,
+  ) {
+    throw UnimplementedError();
+  }
 }
