@@ -17,7 +17,7 @@ class _PasswordFieldState extends State<PasswordField> {
   Widget build(BuildContext context) {
     return CustomTextFormField(
       obscureText: obscureText,
-      onSaved: (value) {},
+      onSaved: widget.onSaved,
       hintText: 'كلمة المرور',
       hintStyle: TextStyles.cairoBold13.copyWith(
         color: Color(0xff949D9E),

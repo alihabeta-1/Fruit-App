@@ -24,6 +24,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   AutovalidateMode autovalidateMode =
       AutovalidateMode.disabled;
   late String email, password, userName;
+  late bool isTermsAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -68,17 +69,38 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
               ),
               SizedBox(height: 16),
-              TermsAndConditions(),
+              TermsAndConditions(
+                onChanged: (value) {
+                  isTermsAccepted = value;
+                },
+              ),
               SizedBox(height: 30),
               CustomButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context.read<SignupCubit>().signup(
-                      email,
-                      password,
-                      userName,
-                    );
+                    if (isTermsAccepted == true) {
+                      context.read<SignupCubit>().signup(
+                        email,
+                        password,
+                        userName,
+                      );
+                    } else {
+                      ScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'يجب الموافقة على الشروط والأحكام',
+                            style: TextStyles.cairoBold13
+                                .copyWith(
+                                  color: Colors.white,
+                                ),
+                          ),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
                   } else {
                     setState(() {
                       autovalidateMode =
