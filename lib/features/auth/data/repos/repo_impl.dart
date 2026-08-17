@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:fruithub/core/errors/exeptions.dart';
 import 'package:fruithub/core/errors/failures.dart';
@@ -23,6 +24,9 @@ class AuthRepoImpl implements AuthRepo {
     } on CustomException catch (e) {
       return Left(ServerFailure(e.message));
     } catch (e) {
+      log(
+        'AuthRepoImplException in createUserWithEmailAndPassword : ${e.toString()}',
+      );
       return Left(
         ServerFailure(
           'حدث خطأ غير متوقع أثناء إنشاء الحساب. يرجى المحاولة مرة أخرى.',
