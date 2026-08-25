@@ -111,7 +111,6 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 text: 'إنشاء حساب جديد',
               ),
               SizedBox(height: 26),
-
               HaveAnAccountWidget(),
             ],
           ),

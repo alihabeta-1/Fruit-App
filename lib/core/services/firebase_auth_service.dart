@@ -50,4 +50,48 @@ class FirebaseAuthService {
       );
     }
   }
+
+  Future<User> login(String email, String password) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+            email: email,
+            password: password,
+          );
+
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      log(
+        'FirebaseAuthException in login : ${e.toString()} and code: ${e.code}',
+      );
+      if (e.code == 'user-not-found') {
+        throw CustomException(
+          message:
+              'البريد الالكتروني أو كلمة المرور غير صحيحة. يرجى التحقق من بياناتك والمحاولة مرة أخرى.',
+        );
+      } else if (e.code == 'wrong-password') {
+        throw CustomException(
+          message:
+              'البريد الالكتروني أو كلمة المرور غير صحيحة. يرجى التحقق من بياناتك والمحاولة مرة أخرى.',
+        );
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(
+          message:
+              'للأسف، فشل الاتصال بالشبكة. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.',
+        );
+      }
+      throw CustomException(
+        message:
+            'للأسف، حدث خطأ غير متوقع أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.',
+      );
+    } catch (e) {
+      log(
+        'FirebaseAuthException in login : ${e.toString()}',
+      );
+      throw CustomException(
+        message:
+            'للأسف، حدث خطأ غير متوقع أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.',
+      );
+    }
+  }
 }

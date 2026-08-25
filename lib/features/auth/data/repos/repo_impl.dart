@@ -36,10 +36,27 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> login(
+  Future<Either<Failure, UserEntity>> signin(
     String email,
     String password,
-  ) {
-    throw UnimplementedError();
+  ) async {
+    try {
+      var user = await firebaseAuthService.login(
+        email,
+        password,
+      );
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(ServerFailure(e.message));
+    } catch (e) {
+      log(
+        'AuthRepoImplException in login : ${e.toString()}',
+      );
+      return Left(
+        ServerFailure(
+          'حدث خطأ غير متوقع أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.',
+        ),
+      );
+    }
   }
 }
